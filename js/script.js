@@ -1,27 +1,32 @@
-document.addEventListener('DOMContentLoaded', function(){
-  console.log('test');
-  var form = document.querySelector('.calc')
-  form.addEventListener('submit', function(e){      
-    e.preventDefault()
-    })
-    var res_field = document.querySelector('calc__result-field')
+let display = document.querySelector('.display');
 
-    var btn_num = document.querySelectorAll('.js--btn-add-res')
-    var btn_reset = document.querySelector('.js--btn-reset')
-    var btn_calc = document.querySelector('.js--btn-calc')
-    for(i=0; i < btn_num.length; i++){
-      btn_num[i].addEventListener('click', function(e){
-        e.preventDefault()
-        res_field.value += this.innerHTML;
-      })
-    }
-    
-    btn_reset.addEventListener('click', function(e){
-      e.preventDefault()
-      res_field.value = this.innerHTML;
-    })
-    btn_reset.addEventListener('click', function(e){
-      e.preventDefault()
-      res_field.value = eval(res_field.value);
-    })
-})
+let buttons = Array.from(document.querySelectorAll(".button"));
+
+buttons.map((button) => {
+  switch (else.target.innerText) {
+    case "AC":
+      display.innerText = 0;
+      break;
+    case "=":
+      try {
+        display.innerText = eval(display.innerText);
+      } catch (e) {
+        display.innerText = "Error";
+      }
+      break;
+    case "+/-":
+      display.innerText = "-";
+      break;
+    case "%":
+      let passedText = display.innerText + "/100";
+      display.innerText = eval(passedText);
+      break;
+      default:
+        if (display.innerText === "0" && e.target.innerText !== ".") {
+          display.innerText = e.target.innerText;
+        } else {
+          display.innerText += e.target.innerText;
+        }  
+      }
+   });
+});
