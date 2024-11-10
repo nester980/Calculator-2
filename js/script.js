@@ -3,7 +3,7 @@ let display = document.querySelector('.display');
 let buttons = Array.from(document.querySelectorAll(".button"));
 
 buttons.map((button) => {
-  switch (else.target.innerText) {
+  switch (e.target.innerText) {
     case "AC":
       display.innerText = 0;
       break;
